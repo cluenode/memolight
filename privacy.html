@@ -92,13 +92,13 @@
   <body>
     <main>
       <h1>Memolight Privacy Policy</h1>
-      <p class="muted">Last updated: July 10, 2026</p>
+      <p class="muted">Last updated: July 15, 2026</p>
 
       <div class="lang">한국어</div>
       <h2>개요</h2>
       <p>
         Memolight는 지원 사이트와 사용자가 직접 허용한 도메인에서 개인 메모, 라벨, 색상 표시를 로컬로 관리하기 위한 브라우저 확장 프로그램입니다.
-        이 확장은 사용자의 메모 데이터를 개발자 서버 또는 제3자 서버로 전송하지 않습니다.
+        메모는 기본적으로 브라우저에만 저장됩니다. 사용자가 선택적으로 Google Drive 동기화를 켜면 암호화된 동기화 데이터가 사용자의 Google Drive로 직접 전송되며 개발자 서버를 거치지 않습니다.
       </p>
 
       <h2>저장되는 데이터</h2>
@@ -109,18 +109,32 @@
         <li>사용자가 선택한 표시 색상</li>
         <li>메모 작성일, 수정일, 마지막 확인 시각, 출처 저장 시각</li>
         <li>메모를 처음 저장한 페이지의 URL, 페이지 제목, 메모 대상 주변의 짧은 문맥</li>
+        <li>메모 내용, 라벨, 색상, 표시 범위 및 출처의 최근 변경 이력과 사용자가 삭제한 메모의 복원용 삭제 기록</li>
         <li>직접 추가한 도메인, 선택자 범위, 사이트별 켜기/끄기 설정 등 확장 프로그램 설정</li>
+        <li>동기화를 켠 경우 무작위 설치 식별자, 논리 변경 번호, 동기화 시각·상태, Google Drive 파일 식별자, 암호화 키 자료. 실제 기기 이름, 일련번호, MAC 주소 또는 하드웨어 식별자는 수집하지 않습니다.</li>
+        <li>동기화 연결 시 현재 연결된 계정을 구분하기 위해 Google Drive가 제공하는 계정 이메일 또는 표시 이름. 이 정보는 해당 기기의 로컬 저장소에만 보관되며 Drive 동기화 파일이나 개발자 서버로 전송되지 않습니다.</li>
+        <li>동기화 연결에 필요한 Google OAuth 접근·갱신 토큰. Chrome에서는 브라우저가 관리하고, Firefox에서는 해당 확장 프로그램의 로컬 저장소에만 보관하며, Safari에서는 Memolight 앱과 확장 프로그램이 공유하는 운영체제 Keychain에 보관합니다.</li>
+        <li>사용자가 툴바 아이콘으로 페이지 진단을 실행한 경우 해당 호스트 이름, 권한·설정 상태, selector·대상·표시 개수 요약. 이 임시 진단 정보는 관리 페이지에서 한 번 읽은 뒤 삭제됩니다.</li>
       </ul>
 
       <h2>데이터 사용 방식</h2>
       <p>
-        저장된 데이터는 닉네임 또는 문구 옆 메모 표시, 메모 편집, 관리 페이지 검색, 메모를 처음 저장한 페이지 다시 열기, 사이트별 표시 설정, CSV 내보내기, 암호화 백업 내보내기 및 가져오기 기능을 제공하는 데 사용됩니다.
+        저장된 데이터는 닉네임 또는 문구 옆 메모 표시, 메모 편집과 이력 복원, 삭제 메모 복원, 관리 페이지 검색, 메모를 처음 저장한 페이지 다시 열기, 사이트별 표시 설정, CSV 내보내기, 암호화 백업 내보내기 및 가져오기, 사용자가 요청한 기기 간 동기화 기능을 제공하는 데 사용됩니다.
         Memolight는 광고, 추적, 분석, 판매 목적으로 사용자 데이터를 사용하지 않습니다.
+      </p>
+      <p>
+        직접 추가한 사이트는 기본적으로 도메인별로 접근 권한을 요청합니다. 사용자는 반복 요청을 줄이기 위해 모든 HTTP/HTTPS 사이트 접근을 선택적으로 한 번에 허용할 수 있으며 언제든 해제할 수 있습니다.
+        전체 사이트 접근이 허용되어도 Memolight는 기본 지원 사이트와 사용자가 직접 추가해 활성화한 도메인에서만 문구를 확인하고 메모 표시를 실행합니다.
       </p>
 
       <h2>외부 전송 및 공유</h2>
       <p>
-        Memolight는 저장된 메모, 라벨, 닉네임, 회원 식별자, 문구 메모, 출처 URL·제목·주변 문맥, 직접 추가한 도메인 설정을 외부 서버로 전송하거나 제3자와 공유하지 않습니다.
+        Google Drive 동기화를 사용하지 않으면 Memolight는 저장된 메모와 설정을 외부 서버로 전송하지 않습니다.
+        사용자가 Google Drive 동기화를 명시적으로 연결하면 메모, 라벨, 식별자, 문구, 출처 정보, 변경 이력, 삭제 표식, 동기화 대상 사이트 정의, 무작위 설치 식별자가 기기에서 AES-GCM으로 암호화된 후 사용자의 Google Drive 앱 전용 숨김 공간으로 직접 전송됩니다.
+        연결 후 실제 메모 변경은 약 30초 동안 합쳐 자동 동기화되며, 다른 기기의 변경사항은 브라우저 시작 시와 30분마다 확인합니다. 변경된 동기화 데이터가 없으면 새 Drive 스냅샷을 만들지 않습니다. 일시 오류는 5분, 15분, 30분, 60분 뒤 제한적으로 다시 시도하고, 계정 권한이 필요하면 백그라운드 재시도를 중단합니다. 자동 확인은 Google 계정 선택 창을 임의로 열지 않으며, 사용자는 관리 페이지의 ‘지금 동기화’ 또는 ‘Google 계정 다시 연결’로 직접 재개할 수 있습니다.
+        Memolight는 비민감 범위인 <code>drive.appdata</code>만 요청하며 사용자의 일반 Drive 파일을 보거나 변경할 수 없습니다. Google은 OAuth 연결 정보, 암호화 파일의 크기·시각 같은 메타데이터, 암호화된 바이트 및 복호화에 필요한 동기화 키를 처리할 수 있습니다.
+        연결된 계정을 관리 페이지에 표시하기 위해 같은 권한으로 Google Drive 계정 이메일 또는 표시 이름을 확인하며, 이 계정 표시는 기기에만 저장되고 동기화 데이터에는 포함되지 않습니다.
+        동기화 키는 같은 Google 계정으로 다른 기기에서 자동 연결할 수 있도록 앱 전용 숨김 공간에 함께 저장됩니다. 따라서 이 암호화는 스냅샷 파일만 따로 노출되는 경우를 보호하지만 Google 계정 접근 권한이나 Google 자체로부터 데이터를 숨기는 영지식 암호화는 아닙니다. 개발자 서버는 동기화 데이터나 키를 받지 않습니다.
         확장 프로그램은 패키지에 포함된 코드만 실행하며, 외부 서버에서 실행 가능한 코드를 다운로드하거나 실행하지 않습니다.
         사용자가 후원 링크를 누르면 외부 서비스인 Ko-fi 페이지가 열리며, 후원 결제 정보는 Memolight가 처리하거나 저장하지 않습니다.
       </p>
@@ -132,16 +146,19 @@
         개발자는 사용자의 로컬 메모 내용을 읽거나 수집하지 않습니다.
       </p>
 
-      <h2>내보내기와 백업</h2>
+      <h2>내보내기, 백업 및 동기화</h2>
       <p>
         사용자가 직접 CSV 파일을 내보내는 경우 메모와 출처 URL·제목·주변 문맥이 포함될 수 있으며 CSV 파일은 암호화되지 않습니다.
         암호화 백업 파일은 사용자가 입력한 비밀번호를 기반으로 AES-GCM 방식으로 암호화됩니다.
+        Google Drive 동기화는 무작위 데이터 암호화 키를 사용하며, 같은 Google 계정에서 자동으로 다시 연결할 수 있도록 그 키도 Drive 앱 전용 숨김 공간에 저장합니다. 별도의 사용자 복구 키는 필요하지 않습니다.
         내보낸 파일의 보관과 공유는 사용자 책임입니다.
       </p>
 
       <h2>데이터 삭제</h2>
       <p>
-        사용자는 Memolight 관리 페이지에서 개별 메모를 삭제하거나 로컬 데이터를 초기화할 수 있습니다.
+        사용자가 개별 메모를 삭제하면 복원 가능한 삭제 기록으로 로컬에 남으며 영구 삭제 전까지 저장 공간을 계속 사용합니다. 사용자는 관리 페이지에서 삭제 메모를 복원하거나 메모와 이력을 영구 삭제할 수 있습니다.
+        로컬 데이터 초기화는 활성 메모, 이력 및 삭제 기록을 모두 삭제합니다.
+        동기화 연결 해제는 해당 기기의 로컬 메모, 동기화 대기 변경 기록, Google Drive 데이터를 삭제하지 않습니다. 사용자는 별도의 Drive 데이터 삭제 동작으로 해당 동기화 저장소의 동기화 키와 암호화 스냅샷을 삭제할 수 있으며, 이 작업은 로컬 메모를 삭제하지 않습니다.
         브라우저에서 확장 프로그램을 제거하거나 브라우저 프로필 데이터를 삭제하는 경우 로컬에 저장된 데이터도 삭제될 수 있습니다.
       </p>
 
@@ -156,7 +173,7 @@
       <h2>Overview</h2>
       <p>
         Memolight is a browser extension for keeping local notes, labels, and color markers on supported sites and user-allowed domains.
-        The extension does not transmit the user's memo data to the developer's server or to third-party servers.
+        Memos are stored only in the browser by default. If the user optionally enables Google Drive sync, encrypted sync data is sent directly to the user's Google Drive without passing through a developer server.
       </p>
 
       <h2>Data Stored</h2>
@@ -167,18 +184,32 @@
         <li>Marker colors selected by the user</li>
         <li>Created, updated, last-seen, and source-saved timestamps</li>
         <li>The URL and title of the page where a memo was first saved, plus a short text snippet around the memo target</li>
+        <li>The latest change history for memo text, labels, colors, display ranges, and source context, plus recoverable deletion records for memos deleted by the user</li>
         <li>Extension settings such as directly added domains, selector scopes, and per-site enable or disable states</li>
+        <li>When sync is enabled: a random installation identifier, logical change counters, sync timestamps and status, Google Drive file identifiers, and encryption key material. Memolight does not collect a device name, serial number, MAC address, or hardware identifier.</li>
+        <li>When sync is connected: the Google account email address or display name returned by Google Drive so the user can identify the connected account. This information is kept only in that device's local storage and is not placed in Drive sync files or sent to a developer server.</li>
+        <li>Google OAuth access and refresh tokens required for sync. Chrome manages them in the browser, Firefox keeps them only in that extension's local storage, and Safari keeps them in the operating-system Keychain shared by the Memolight app and extension.</li>
+        <li>When the user runs page diagnosis from the toolbar icon: the host name and a summary of permission, configuration, selector, target, and marker counts. This temporary diagnostic is deleted after the management page reads it once.</li>
       </ul>
 
       <h2>How Data Is Used</h2>
       <p>
-        Stored data is used to show memo markers next to nicknames or saved text phrases, edit notes, search the management page, reopen the page where a memo was first saved, control per-site display settings, export CSV files, and export or import encrypted backups.
+        Stored data is used to show memo markers next to nicknames or saved text phrases, edit and restore memo versions, restore deleted memos, search the management page, reopen the page where a memo was first saved, control per-site display settings, export CSV files, export or import encrypted backups, and perform user-requested device synchronization.
         Memolight does not use user data for advertising, tracking, analytics, or sale.
+      </p>
+      <p>
+        Custom sites request access one domain at a time by default. Users may optionally grant all HTTP/HTTPS site access once to reduce repeated prompts and may revoke that access at any time.
+        Even when all-sites access is granted, Memolight checks page text and runs memo markers only on built-in sites and custom domains explicitly added and enabled by the user.
       </p>
 
       <h2>Transmission and Sharing</h2>
       <p>
-        Memolight does not transmit stored notes, labels, nicknames, member identifiers, text memos, source URLs, page titles, source snippets, or directly added domain settings to external servers, and does not share them with third parties.
+        When Google Drive sync is not used, Memolight does not transmit stored memos or settings to an external server.
+        When the user explicitly connects and runs Google Drive sync, memos, labels, identifiers, phrases, source context, revision history, deletion markers, synced site definitions, and a random installation identifier are encrypted on the device with AES-GCM and sent directly to the user's hidden Google Drive app-data folder.
+        Connected memo changes are coalesced for about 30 seconds, while remote changes are checked at browser startup and every 30 minutes. Transient failures use bounded retries after 5, 15, 30, and 60 minutes; background retry stops when account authorization is required and never opens an account window on its own.
+        Memolight requests only the non-sensitive <code>drive.appdata</code> scope and cannot view or modify the user's normal Drive files. Google can process OAuth connection information, encrypted object metadata such as size and time, the encrypted bytes, and the sync key needed to decrypt them.
+        Using that same scope, Memolight reads the Google Drive account email address or display name solely to identify the connected account on the management page. The account hint stays on the device and is not included in synchronized data.
+        The sync key is stored in the hidden app-data folder so another device can reconnect automatically with the same Google account. Encryption therefore protects a snapshot exposed by itself, but it is not zero-knowledge encryption against access to the Google account or Google itself. No developer server receives the sync data or key.
         The extension runs only code included in the extension package and does not download or execute remote executable code.
         If the user opens the support link, an external Ko-fi page is opened. Memolight does not process or store donation payment information.
       </p>
@@ -190,16 +221,19 @@
         The developer does not read or collect the user's local memo contents.
       </p>
 
-      <h2>Export and Backup</h2>
+      <h2>Export, Backup, and Sync</h2>
       <p>
         CSV files exported by the user may contain memo data, source URLs, page titles, and source snippets, and are not encrypted.
         Encrypted backup files are encrypted with AES-GCM using a password entered by the user.
+        Google Drive sync uses a random data-encryption key and stores that key in Drive's hidden app-data folder so the same Google account can reconnect automatically. No separate user recovery key is required.
         The user is responsible for storing and sharing exported files safely.
       </p>
 
       <h2>Data Deletion</h2>
       <p>
-        Users can delete individual notes or reset local data from the Memolight management page.
+        Deleting an individual memo leaves a recoverable local deletion record that continues to use storage until permanently removed. Users can restore a deleted memo or permanently delete its memo data and history from the management page.
+        Resetting local data deletes active memos, revision history, and deletion records.
+        Disconnecting sync does not delete local memos, pending sync-change records, or encrypted data in Google Drive. A separate Delete Drive data action deletes that vault's sync key and encrypted snapshots without deleting local memos.
         Removing the extension or deleting browser profile data may also delete locally stored data.
       </p>
 
