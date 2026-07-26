@@ -92,7 +92,7 @@
   <body>
     <main>
       <h1>Memolight Privacy Policy</h1>
-      <p class="muted">Last updated: July 15, 2026</p>
+      <p class="muted">Last updated: July 26, 2026</p>
 
       <div class="lang">한국어</div>
       <h2>개요</h2>
@@ -105,17 +105,23 @@
       <p>Memolight는 기능 제공을 위해 다음 데이터를 사용자의 브라우저 로컬 저장소에 저장할 수 있습니다.</p>
       <ul>
         <li>회원 닉네임, 사이트에서 감지한 회원 식별자, 또는 사용자가 직접 저장한 문구</li>
-        <li>사용자가 직접 작성한 메모와 짧은 라벨</li>
+        <li>사용자가 직접 작성한 메모와 짧은 라벨. 편집기에서 새 메모를 만들거나 본문을 변경해 저장할 때는 10,000자까지이며, 가져오기·동기화·데이터 정리·이력 복원은 이전 데이터의 초과 길이 메모를 자르지 않습니다. 편집기에서도 본문을 바꾸지 않은 상태로 유지할 수 있습니다.</li>
         <li>사용자가 선택한 표시 색상</li>
-        <li>메모 작성일, 수정일, 마지막 확인 시각, 출처 저장 시각</li>
-        <li>메모를 처음 저장한 페이지의 URL, 페이지 제목, 메모 대상 주변의 짧은 문맥</li>
-        <li>메모 내용, 라벨, 색상, 표시 범위 및 출처의 최근 변경 이력과 사용자가 삭제한 메모의 복원용 삭제 기록</li>
+        <li>메모 작성일, 수정일, 마지막 확인 시각, 출처 저장 시각. 같은 메모의 마지막 확인 시각은 최대 6시간에 한 번만 저장하며, 확인 시각만 바뀐 경우 동기화 변경 기록을 올리거나 추가 동기화를 예약하지 않습니다. 이후 다른 변경으로 생성되는 데이터베이스 스냅샷에는 이 시각이 포함될 수 있습니다.</li>
+        <li>메모를 처음 저장한 페이지의 URL, 페이지 제목, 메모 대상 주변의 짧은 문맥. 저장 URL에서는 일반적인 OAuth/OIDC 콜백 자격정보와 상태·오류 매개변수, 추적 값 및 요청 서명을 제거하되 지원 사이트 이동 코드 등 페이지를 다시 여는 데 필요한 쿼리와 해시는 유지합니다.</li>
+        <li>메모 내용, 라벨, 색상, 표시 범위 및 출처의 최근 변경 이력과 사용자가 삭제한 메모의 복원용 삭제 기록. 활성 메모와 복원 가능한 삭제 기록은 메모마다 최근 20개 이력을 유지하며, 전체 이력을 별도로 자동 삭제하는 합산 제한은 적용하지 않습니다.</li>
         <li>직접 추가한 도메인, 선택자 범위, 사이트별 켜기/끄기 설정 등 확장 프로그램 설정</li>
         <li>동기화를 켠 경우 무작위 설치 식별자, 논리 변경 번호, 동기화 시각·상태, Google Drive 파일 식별자, 암호화 키 자료. 실제 기기 이름, 일련번호, MAC 주소 또는 하드웨어 식별자는 수집하지 않습니다.</li>
         <li>동기화 연결 시 현재 연결된 계정을 구분하기 위해 Google Drive가 제공하는 계정 이메일 또는 표시 이름. 이 정보는 해당 기기의 로컬 저장소에만 보관되며 Drive 동기화 파일이나 개발자 서버로 전송되지 않습니다.</li>
         <li>동기화 연결에 필요한 Google OAuth 접근·갱신 토큰. Chrome에서는 브라우저가 관리하고, Firefox에서는 해당 확장 프로그램의 로컬 저장소에만 보관하며, Safari에서는 Memolight 앱과 확장 프로그램이 공유하는 운영체제 Keychain에 보관합니다.</li>
         <li>사용자가 툴바 아이콘으로 페이지 진단을 실행한 경우 해당 호스트 이름, 권한·설정 상태, selector·대상·표시 개수 요약. 이 임시 진단 정보는 관리 페이지에서 한 번 읽은 뒤 삭제됩니다.</li>
+        <li>1.4.4 이상에서 격리된 메모 화면을 백그라운드 재시작 후에도 안전하게 이어가기 위한 임시 권한 기록. 무작위 세션 토큰, 화면 모드, 탭·프레임·문서 연결 정보, 메모 키 또는 대상 식별 정보, 표시 이름, 테마·모바일 상태, 마지막 접근 시각, 오래된 저장을 거부하기 위한 불투명한 저장 상태 지문과 새 메모의 정제된 출처 정보가 포함될 수 있습니다. 최대 64개를 보관하고 탭을 닫으면 해당 기록을 삭제하며, 마지막 접근 후 2시간이 지난 기록도 다음 세션 정리 때 삭제합니다. 이 임시 기록에는 메모 본문, 짧은 라벨, 이력 내용 또는 저장하지 않은 편집 초안이 포함되지 않습니다.</li>
+        <li>사용자가 DVDPrime 활동 알림을 켜거나 패널을 열거나 직접 확인한 경우 선택한 알림 종류, 마지막 로그인·확인 상태와 시각, 댓글·추천·구독글 개수, 새 항목 중복 알림을 막기 위한 개수 제한 식별값, 최대 5개의 활성 알림에서 열 대표 게시글 또는 댓글의 검증된 DVDPrime URL. 이 정보는 해당 브라우저의 확장 프로그램 로컬 저장소에만 보관되며 Google Drive 동기화 대상이 아닙니다.</li>
+        <li>사용자가 DVDPrime 활동 알림을 켜거나 패널을 열거나 직접 확인한 경우, 확인 신뢰성 진단을 위한 마지막 확인 시작·완료·성공 시각, 마지막 알람 발생 시각, 지연 확인 복구 시도 시각, 확인 시작 경로와 마지막 결과 상태. 이 진단 기록 자체에는 쿠키, 원본 HTML, 항목 제목·URL 또는 활동 개수가 포함되지 않으며 Google Drive로 동기화되지 않습니다.</li>
       </ul>
+      <p>
+        Memolight는 브라우저의 로컬 확장 저장소를 별도로 암호화하지 않습니다. 로컬 데이터 보호는 사용자의 기기와 브라우저 프로필 보안에 의존합니다. Google Drive 동기화 데이터와 사용자가 내보낸 암호화 백업은 이 로컬 저장 방식과 별도로 암호화됩니다.
+      </p>
 
       <h2>데이터 사용 방식</h2>
       <p>
@@ -123,8 +129,45 @@
         Memolight는 광고, 추적, 분석, 판매 목적으로 사용자 데이터를 사용하지 않습니다.
       </p>
       <p>
+        관리 페이지가 열린 동안 다른 탭에서 로컬 메모가 변경되면 목록을 갱신합니다. 메모 편집기와 직접 사이트 메모 양식의 저장 전 입력을 보존하며, 백업·복구 비밀번호나 가져올 파일이 선택된 동안에는 입력을 지우지 않도록 외부 갱신을 미룹니다. 다른 화면의 변경보다 오래된 편집 내용을 저장하려 하면 외부 메모를 덮어쓰거나 되살리지 않고 거부하며, 작성 중인 초안은 복사할 수 있도록 화면에 남깁니다.
+      </p>
+      <p>
         직접 추가한 사이트는 기본적으로 도메인별로 접근 권한을 요청합니다. 사용자는 반복 요청을 줄이기 위해 모든 HTTP/HTTPS 사이트 접근을 선택적으로 한 번에 허용할 수 있으며 언제든 해제할 수 있습니다.
         전체 사이트 접근이 허용되어도 Memolight는 기본 지원 사이트와 사용자가 직접 추가해 활성화한 도메인에서만 문구를 확인하고 메모 표시를 실행합니다.
+      </p>
+
+      <h2>웹페이지와 메모 화면의 분리</h2>
+      <p>
+        기능을 제공하려면 Memolight의 콘텐츠 스크립트가 사용자가 켜고 접근을 허용한 사이트에서 보이는 닉네임·회원 식별자·저장 문구를 확인하고 메모 위치에 표시를 추가해야 합니다. 새 메모를 만들 때는 위에 설명한 정제된 출처 정보도 해당 페이지에서 가져올 수 있습니다.
+      </p>
+      <p>
+        1.4.4 이상에서는 페이지용 콘텐츠 스크립트에 메모 키, 대상 식별 정보, 표시 이름, 색상, 선택자 범위와 이력 개수처럼 표시와 동작에 필요한 메타데이터만 전달합니다. 메모 본문, 짧은 라벨, 출처 정보, 이력 내용과 저장 전 초안은 웹페이지 DOM에 넣지 않고 확장 프로그램 출처의 격리된 전용 화면에서만 표시합니다. 일반 웹사이트 스크립트는 표준 페이지 API를 통해 이 비공개 필드를 읽을 수 없습니다. 이 격리 경계는 1.4.4 미만 버전에는 적용되지 않으며 로컬 저장소의 저장 시 암호화 방식도 변경하지 않습니다.
+        다만 이 분리는 Memolight 사용 사실 자체를 숨기지는 않습니다. 웹사이트는 페이지에 추가된 표시의 존재, 메모 유무와 색상, 전용 화면 컨테이너의 열림 상태를 관찰할 수 있으며, 페이지 알림 배지를 켠 경우에는 그 배지에 표시되는 메모·일치 개수도 볼 수 있습니다.
+      </p>
+
+      <h2>DVDPrime 활동 알림</h2>
+      <p>
+        이 기능은 Chrome·Edge·Firefox 빌드에서만 제공되고 기본적으로 꺼져 있으며, Safari 빌드에서는 표시되거나 실행되지 않습니다. 사용자가 DVDPrime 접근을 허용하고 관리 페이지에서 활동 알림을 직접 켠 경우에만, Memolight는 브라우저에 이미 로그인된 DVDPrime 세션을 사용해 사용자가 선택한 5·15·30·60분 주기(기본 15분)마다 댓글·추천·구독글 개수를 확인합니다. Chrome·Edge에서는 브라우저가 백그라운드 작업을 늦추거나 예약 알람을 잃은 뒤 확장 프로그램 작업이 다시 시작되면, 마지막 확인 시도에서 선택 주기 이상 지난 경우에만 밀린 확인을 한 번 복구할 수 있습니다. 사용자는 세 종류 중 알림과 배지에 포함할 항목을 각각 선택할 수 있고 기본값은 모두 선택입니다. 선택하지 않은 종류도 활동 패널과 중복 방지 기준선을 최신 상태로 유지하고 다시 선택했을 때 밀린 알림이 한꺼번에 발생하지 않도록 계속 확인합니다. 해당 개수가 0보다 크면 현재 항목의 제목, 구독글 작성자 닉네임과 링크를 확인하기 위한 DVDPrime 페이지를 추가로 요청할 수 있습니다. 사용자가 ‘지금 확인’을 누르거나 활동 패널을 열거나 알림을 테스트할 때도 같은 종류의 요청이 실행될 수 있습니다.
+      </p>
+      <p>
+        브라우저는 이 요청에 DVDPrime 로그인 쿠키를 자동으로 포함할 수 있지만, Memolight는 <code>cookies</code> 권한을 요청하지 않고 원본 쿠키 값을 읽거나 저장하지 않습니다. 읽음 상태를 변경하는 DVDPrime 요청도 보내지 않습니다. 요청과 일반적인 접속 정보는 DVDPrime이 처리하며, 조회 결과는 개발자 서버로 전송되지 않습니다.
+      </p>
+      <p>
+        Memolight는 원본 DVDPrime 응답 HTML을 저장하지 않습니다. 항목 제목, 구독글 작성자 닉네임과 현재 링크 목록은 알림 작성 또는 열린 관리 패널 표시에 필요한 동안만 메모리에 두며, 대표 제목·구독글 작성자 닉네임과 활동 개수는 브라우저·운영체제 알림에 표시될 수 있습니다. 운영체제 설정에 따라 이 내용이 잠금 화면이나 연결된 알림 기능에 노출될 수 있습니다.
+      </p>
+      <p>
+        새 활동이 확인되면 확인 주기마다 알림 하나를 만들며, 확인하지 않은 활성 알림은 최대 5개까지 유지하고 여섯 번째부터 가장 오래된 알림을 정리합니다. 각 알림의 클릭 이동을 위해 검증된 대표 URL을 최대 5개까지 임시 저장합니다. 활동 알림을 끄거나 DVDPrime 접근 권한을 해제하거나 모든 사이트 사용을 일시 중지하면 예약 확인, 배지, 활성 알림, 임시 대표 URL과 자동 확인 진단 시각을 모두 삭제합니다. 마지막으로 정제된 개수와 중복 방지 식별값은 다시 켰을 때 같은 활동을 반복 알림하지 않도록 해당 기기에 남을 수 있으며, 로컬 데이터 초기화 또는 확장 프로그램 제거 시 삭제됩니다. 각 임시 대표 URL은 해당 알림을 누르거나 지울 때 삭제되며, 남아 있더라도 7일이 지나면 삭제됩니다.
+      </p>
+
+      <h2>Firefox 선택적 데이터 동의</h2>
+      <p>
+        Firefox 빌드가 선언하는 필수 데이터 수집 범주는 <code>none</code>입니다. DVDPrime 활동 알림과 Google Drive 동기화에는 Firefox가 정의한 선택적 <code>websiteContent</code> 범주를 사용합니다. 이 범주는 DVDPrime 로그인 쿠키가 브라우저에 의해 포함될 수 있는 요청과 그 응답, 그리고 Google Drive로 보내거나 받는 암호화된 메모 데이터를 포함합니다. Google OAuth 접근·갱신 토큰에는 선택적 <code>authenticationInfo</code> 범주를 사용합니다.
+      </p>
+      <p>
+        Memolight는 DVDPrime 활동 알림을 켜거나 패널을 열거나 직접 확인하는 동작에서 <code>websiteContent</code> 동의를 요청합니다. 연결·동기화·이전·손상된 현재 설치 소유 스냅샷 복구·원격 데이터 삭제처럼 Google에 접속할 수 있는 명시적 Google Drive 동작에서는 <code>websiteContent</code>와 <code>authenticationInfo</code> 동의와 함께 정확한 Google API 주소 접근을 선택적으로 요청하며, Android에서는 검증된 OAuth 콜백을 확인하기 위한 <code>127.0.0.1</code> 주소 접근도 함께 요청합니다. 이 Google 서비스 주소들은 Firefox 설치 시 필수 권한이 아닙니다. 한 번 동의한 뒤 실행되는 예약 작업도 해당 동의와 주소 접근이 모두 유지되는 동안에만 전송을 수행하며, 어느 하나라도 없거나 철회되면 외부 전송 없이 중단합니다. 선택적 권한을 거부해도 로컬 메모와 백업 기능은 계속 사용할 수 있습니다.
+      </p>
+      <p>
+        과거 Firefox 공개판에서 설치 필수 권한이었던 Google API 주소와 Android 콜백 주소는 새 manifest에서 선택 권한으로 바뀐 뒤에도 기존 프로필에 남을 수 있습니다. 1.4.4 이상은 이 상태를 한 번 확인해, 두 Google Drive 데이터 범주에 모두 동의한 경우 현재 플랫폼용으로 이미 부여된 주소는 유지하고 데스크톱의 Android 전용 콜백 주소만 제거합니다. 완전한 동의가 없으면 남아 있는 정확한 Google 서비스 주소만 제거합니다. 다만 사용자가 직접 추가한 문구 사이트의 정확한 접근 패턴이 이 주소와 같으면 사용자 지정 사이트 권한으로 보존합니다. 누락된 주소는 다음 명시적 Drive 동작에서 요청하며, 이 정리는 메모, 로컬 동기화 상태, OAuth 토큰, 다른 사이트 접근 권한 또는 Firefox 데이터 동의 설정을 삭제하지 않습니다.
       </p>
 
       <h2>외부 전송 및 공유</h2>
@@ -138,6 +181,9 @@
         확장 프로그램은 패키지에 포함된 코드만 실행하며, 외부 서버에서 실행 가능한 코드를 다운로드하거나 실행하지 않습니다.
         사용자가 후원 링크를 누르면 외부 서비스인 Ko-fi 페이지가 열리며, 후원 결제 정보는 Memolight가 처리하거나 저장하지 않습니다.
       </p>
+      <p>
+        1.4.4 이상에서 현재 설치가 로컬 상태에 기록한 정확한 Google Drive 스냅샷의 손상이 확인되면 자동 동기화와 재시도를 멈추고, 관리 페이지에서만 명시적 복구 동작을 제공합니다. 사용자가 확인한 복구는 현재 보관함·데이터 키와 일치하는 계정 검증 버전 2 키 봉투가 있는 경우에만 진행합니다. 읽을 수 있는 원격 스냅샷과 로컬 데이터를 합쳐 보관함별 비정상 이름의 임시 암호화 파일을 만들고, 그 파일을 다시 읽어 복호화한 뒤 전체 내용을 비교합니다. 검증된 파일을 정상 스냅샷 이름으로 승격한 뒤에만 손상 파일이 그대로인지 다시 확인하고 보관함별 격리 이름으로 바꿔 보존하며 삭제하지 않습니다. 승격 전 오류는 손상된 정상 이름 파일을 바꾸지 않습니다. 검증 후 승격이나 격리 결과가 불확실하면 검증된 대체 파일을 삭제하지 않고 기존 로컬 경고를 유지해, 다음 명시적 복구가 안전하게 재사용하거나 이어받도록 합니다. 사용자가 별도의 Drive 데이터 삭제를 명시적으로 실행하면 정상 스냅샷·키 봉투와 함께 현재 보관함의 복구 임시·격리 사본도 삭제합니다. 이 과정도 개발자 서버를 거치지 않습니다.
+      </p>
 
       <h2>제한된 사용 및 목적 제한</h2>
       <p>
@@ -149,7 +195,7 @@
       <h2>내보내기, 백업 및 동기화</h2>
       <p>
         사용자가 직접 CSV 파일을 내보내는 경우 메모와 출처 URL·제목·주변 문맥이 포함될 수 있으며 CSV 파일은 암호화되지 않습니다.
-        암호화 백업 파일은 사용자가 입력한 비밀번호를 기반으로 AES-GCM 방식으로 암호화됩니다.
+        암호화 백업 파일은 사용자가 입력한 비밀번호를 기반으로 AES-GCM 방식으로 암호화됩니다. 백업 비밀번호의 최소 길이는 4자이며 8자 이상을 권장합니다.
         Google Drive 동기화는 무작위 데이터 암호화 키를 사용하며, 같은 Google 계정에서 자동으로 다시 연결할 수 있도록 그 키도 Drive 앱 전용 숨김 공간에 저장합니다. 별도의 사용자 복구 키는 필요하지 않습니다.
         내보낸 파일의 보관과 공유는 사용자 책임입니다.
       </p>
@@ -158,7 +204,8 @@
       <p>
         사용자가 개별 메모를 삭제하면 복원 가능한 삭제 기록으로 로컬에 남으며 영구 삭제 전까지 저장 공간을 계속 사용합니다. 사용자는 관리 페이지에서 삭제 메모를 복원하거나 메모와 이력을 영구 삭제할 수 있습니다.
         로컬 데이터 초기화는 활성 메모, 이력 및 삭제 기록을 모두 삭제합니다.
-        동기화 연결 해제는 해당 기기의 로컬 메모, 동기화 대기 변경 기록, Google Drive 데이터를 삭제하지 않습니다. 사용자는 별도의 Drive 데이터 삭제 동작으로 해당 동기화 저장소의 동기화 키와 암호화 스냅샷을 삭제할 수 있으며, 이 작업은 로컬 메모를 삭제하지 않습니다.
+        동기화 연결 해제는 해당 기기의 로컬 메모, 동기화 대기 변경 기록, Google Drive 데이터를 삭제하지 않습니다. 사용자는 별도의 Drive 데이터 삭제 동작으로 해당 동기화 저장소의 동기화 키, 암호화 스냅샷과 현재 보관함의 복구 임시·격리 사본을 삭제할 수 있으며, 이 작업은 로컬 메모를 삭제하지 않습니다.
+        DVDPrime 활동 알림을 끄는 동작은 예약 확인과 알림을 중단하고 자동 확인 진단 기록을 삭제하지만 마지막 정제 개수와 중복 방지 상태는 삭제하지 않습니다. 이후 사용자가 패널을 열거나 직접 확인하면 새 진단 기록이 생성될 수 있습니다. 로컬 데이터 초기화는 이 DVDPrime 활동 상태와 임시 알림 링크도 함께 삭제합니다.
         브라우저에서 확장 프로그램을 제거하거나 브라우저 프로필 데이터를 삭제하는 경우 로컬에 저장된 데이터도 삭제될 수 있습니다.
       </p>
 
@@ -180,17 +227,23 @@
       <p>Memolight may store the following data in the user's browser local storage to provide its features.</p>
       <ul>
         <li>Member nicknames, member identifiers detected on supported sites, or text phrases saved by the user</li>
-        <li>Notes and short labels written by the user</li>
+        <li>Notes and short labels written by the user. Editor saves that create a memo or change its body are limited to 10,000 characters. Import, synchronization, sanitization, and history restoration do not truncate oversized legacy data, which the editor can also retain unchanged.</li>
         <li>Marker colors selected by the user</li>
-        <li>Created, updated, last-seen, and source-saved timestamps</li>
-        <li>The URL and title of the page where a memo was first saved, plus a short text snippet around the memo target</li>
-        <li>The latest change history for memo text, labels, colors, display ranges, and source context, plus recoverable deletion records for memos deleted by the user</li>
+        <li>Created, updated, last-seen, and source-saved timestamps. A memo's last-seen time is persisted at most once every six hours. An observation-only update does not advance the sync mutation journal or schedule an extra sync mutation, although a later database snapshot can include the timestamp.</li>
+        <li>The URL and title of the page where a memo was first saved, plus a short text snippet around the memo target. Common OAuth/OIDC callback credentials and state/error parameters, tracking values, and request signatures are removed from stored URLs while query keys such as supported-site navigation codes and fragments needed to reopen supported pages are retained.</li>
+        <li>The latest change history for memo text, labels, colors, display ranges, and source context, plus recoverable deletion records for memos deleted by the user. Active and recoverably deleted records retain the latest 20 revisions per memo; there is no separate aggregate limit that silently prunes history across all memos.</li>
         <li>Extension settings such as directly added domains, selector scopes, and per-site enable or disable states</li>
         <li>When sync is enabled: a random installation identifier, logical change counters, sync timestamps and status, Google Drive file identifiers, and encryption key material. Memolight does not collect a device name, serial number, MAC address, or hardware identifier.</li>
         <li>When sync is connected: the Google account email address or display name returned by Google Drive so the user can identify the connected account. This information is kept only in that device's local storage and is not placed in Drive sync files or sent to a developer server.</li>
         <li>Google OAuth access and refresh tokens required for sync. Chrome manages them in the browser, Firefox keeps them only in that extension's local storage, and Safari keeps them in the operating-system Keychain shared by the Memolight app and extension.</li>
         <li>When the user runs page diagnosis from the toolbar icon: the host name and a summary of permission, configuration, selector, target, and marker counts. This temporary diagnostic is deleted after the management page reads it once.</li>
+        <li>In version 1.4.4 and later, temporary authorization records that let an isolated memo UI safely continue after a background restart. They may contain a random session token; UI mode; tab, frame, and document bindings; an annotation key or target identity; display name; theme and mobile state; last-access time; an opaque saved-state fingerprint used to reject stale writes; and sanitized source context for a new memo. Memolight keeps at most 64 records. Closing a tab removes its records, and records whose last access is more than two hours old are pruned during the next session cleanup. These temporary records contain no memo text, short label, revision contents, or unsaved editor draft.</li>
+        <li>When the user enables DVDPrime activity alerts, opens the panel, or checks manually: the selected alert types, latest login and check state and time, comment, recommendation, and subscription-post counts, bounded identifiers used to suppress duplicate alerts, and validated DVDPrime URLs for the representative posts or comments opened from up to five active notifications. This information remains only in that browser's extension local storage and is not included in Google Drive sync.</li>
+        <li>When the user enables DVDPrime activity alerts, opens the panel, or checks manually: the last check start, completion, and successful-check timestamps; last alarm timestamp; delayed-check recovery-attempt timestamp; check trigger; and last result state used to diagnose check reliability. This diagnostic record itself contains no cookie, raw HTML, item title, URL, or activity count and is not synchronized to Google Drive.</li>
       </ul>
+      <p>
+        Memolight does not separately encrypt the browser's local extension storage. Protection of local data depends on the security of the user's device and browser profile. Google Drive sync data and encrypted backup files exported by the user are encrypted separately from this local storage model.
+      </p>
 
       <h2>How Data Is Used</h2>
       <p>
@@ -198,8 +251,45 @@
         Memolight does not use user data for advertising, tracking, analytics, or sale.
       </p>
       <p>
+        While the management page is open, it refreshes when another tab changes local memo data. Unsaved memo-editor and custom-site memo-form input is preserved, while entered backup/recovery passwords and a selected import file defer the external refresh until cleared. Saving an editor older than an external change is rejected without overwriting or resurrecting the external memo, and the rejected draft remains visible for copying.
+      </p>
+      <p>
         Custom sites request access one domain at a time by default. Users may optionally grant all HTTP/HTTPS site access once to reduce repeated prompts and may revoke that access at any time.
         Even when all-sites access is granted, Memolight checks page text and runs memo markers only on built-in sites and custom domains explicitly added and enabled by the user.
+      </p>
+
+      <h2>Separation Between the Website and Memo UI</h2>
+      <p>
+        To provide its features, Memolight's content script must inspect visible nicknames, member identifiers, and saved phrases and add markers on sites the user enables and allows. When the user creates a memo, it may also take the sanitized source context described above from that page.
+      </p>
+      <p>
+        In version 1.4.4 and later, the page-facing content script receives only metadata needed for display and interaction, such as the annotation key, target identity, display name, color, selector scope, and revision count. Memo text, short labels, source context, revision contents, and unsaved drafts are not inserted into the website DOM. They are shown only in an isolated extension-origin UI, so ordinary website scripts cannot read those private fields through standard page APIs. This isolation boundary does not apply to versions earlier than 1.4.4 and does not change encryption at rest in local extension storage.
+        This separation does not conceal that Memolight is in use. A website can still observe the existence of injected markers, whether a marker represents a saved memo, its color, and whether the private-UI container is open. While the Page Alert Badge is enabled, the site can also observe the memo and match counts displayed in that badge.
+      </p>
+
+      <h2>DVDPrime Activity Alerts</h2>
+      <p>
+        This feature is available only in the Chrome, Edge, and Firefox builds and is off by default; it is neither shown nor run in Safari builds. Only after the user grants DVDPrime access and explicitly enables activity alerts on the management page does Memolight use the browser's existing signed-in DVDPrime session to check comment, recommendation, and subscription-post counts at the selected 5-, 15-, 30-, or 60-minute interval, with 15 minutes as the default. On Chrome and Edge, if the browser delays background work or loses a scheduled alarm and later starts the extension worker again, Memolight may recover one overdue check only when at least the selected interval has elapsed since the last check attempt. The user can independently choose which of the three types appear in notifications and the badge, with all three selected by default. Unselected types are still checked to keep the activity panel and duplicate-suppression baseline current and to prevent a backlog from being alerted when a type is selected again. When a corresponding count is greater than zero, Memolight may request additional DVDPrime pages to obtain current item titles, subscription-author nicknames, and links. The same kinds of requests may run when the user selects Check now, opens the activity panel, or tests a notification.
+      </p>
+      <p>
+        The browser may automatically attach DVDPrime session cookies to these requests. Memolight does not request the <code>cookies</code> permission and does not read or store raw cookie values. It also does not send DVDPrime requests that change an item's read state. DVDPrime processes the requests and ordinary connection information; no developer server receives the results.
+      </p>
+      <p>
+        Memolight does not store raw DVDPrime response HTML. Item titles, subscription-author nicknames, and the current link list are held in memory only while creating a notification or displaying the open management panel. A representative title, subscription-author nickname, and activity counts may be shown to the browser and operating system notification service and, depending on system settings, may appear on a lock screen or connected notification surface.
+      </p>
+      <p>
+        When new activity is found, Memolight creates one notification for that check and keeps up to five unhandled active notifications, removing the oldest when a sixth is created. Up to five validated representative URLs are stored temporarily so each notification can open its own target. Disabling activity alerts, revoking DVDPrime access, or suspending all-site use stops scheduled checks and clears the badge, all active notifications, temporary representative URLs, and automatic-check diagnostic timestamps. The latest sanitized counts and duplicate-suppression identifiers may remain on that device so re-enabling the feature does not repeat the same alerts; they are deleted by Reset local data or extension removal. Each temporary representative URL is deleted when its notification is opened or cleared and, if it remains, is deleted after seven days.
+      </p>
+
+      <h2>Optional Firefox Data Consent</h2>
+      <p>
+        The Firefox build declares no required data-collection category: <code>none</code>. DVDPrime activity alerts and Google Drive synchronization use Firefox's optional <code>websiteContent</code> category. This category covers DVDPrime requests to which the browser may attach signed-in cookies and the returned content, plus encrypted memo data sent to or received from Google Drive. Google OAuth access and refresh tokens use the optional <code>authenticationInfo</code> category.
+      </p>
+      <p>
+        Memolight requests <code>websiteContent</code> consent when the user enables DVDPrime activity alerts, opens their panel, or checks them manually. An explicit Google Drive action that can contact Google, including connection, synchronization, migration, recovery of a damaged snapshot owned by the current installation, or remote-data deletion, requests both <code>websiteContent</code> and <code>authenticationInfo</code> together with optional access to the exact Google API origins; on Android the same request also includes <code>127.0.0.1</code> solely for the validated OAuth callback. These Google service origins are not required at Firefox installation. Scheduled work transmits data only while both the applicable consent and origin access remain granted and stops without external transmission when either is absent or revoked. Declining the optional permissions leaves local memo and backup features available.
+      </p>
+      <p>
+        Google API and Android callback origins required by older public Firefox builds can remain granted in an existing profile after a newer manifest makes them optional. Version 1.4.4 and later checks this legacy state once. When both Google Drive data categories are granted, it preserves any already-granted origins used by the current platform and removes only the Android-only callback on desktop. Without complete consent, it removes only the exact remaining Google service origins. If a user-configured custom text site's exact access pattern equals one of those origins, it is preserved as custom-site access. Missing origins are requested by the next explicit Drive action. The cleanup does not delete memos, local sync state, OAuth tokens, unrelated site access, or Firefox data-consent settings.
       </p>
 
       <h2>Transmission and Sharing</h2>
@@ -213,6 +303,9 @@
         The extension runs only code included in the extension package and does not download or execute remote executable code.
         If the user opens the support link, an external Ko-fi page is opened. Memolight does not process or store donation payment information.
       </p>
+      <p>
+        In version 1.4.4 and later, when corruption is confirmed in the exact Google Drive snapshot recorded in local state for the current installation, automatic synchronization and retries stop and an explicit repair action is offered only on the management page. User-confirmed repair proceeds only when the account-verified version 2 key envelope matches the current vault and data key. Memolight merges readable remote snapshots with local data, creates a vault-scoped noncanonical encrypted staging object, reads it back, decrypts it, and compares the complete payload. It promotes the verified object to the canonical snapshot name and only then rechecks and renames the unchanged damaged file under a vault-scoped quarantine name; it does not delete that file. A failure before promotion leaves the damaged canonical file unchanged. If promotion or quarantine becomes ambiguous after verification, Memolight never deletes the verified replacement, preserves the local warning, and lets a later explicit repair reuse or adopt it safely. The separate user-confirmed Delete Drive data action deletes the current vault's recovery staging and quarantine copies together with normal snapshots and the key envelope. No developer server participates in this process.
+      </p>
 
       <h2>Limited Use and Purpose Limitation</h2>
       <p>
@@ -224,7 +317,7 @@
       <h2>Export, Backup, and Sync</h2>
       <p>
         CSV files exported by the user may contain memo data, source URLs, page titles, and source snippets, and are not encrypted.
-        Encrypted backup files are encrypted with AES-GCM using a password entered by the user.
+        Encrypted backup files are encrypted with AES-GCM using a password entered by the user. The minimum backup-password length remains four characters, while eight or more characters is recommended.
         Google Drive sync uses a random data-encryption key and stores that key in Drive's hidden app-data folder so the same Google account can reconnect automatically. No separate user recovery key is required.
         The user is responsible for storing and sharing exported files safely.
       </p>
@@ -233,7 +326,8 @@
       <p>
         Deleting an individual memo leaves a recoverable local deletion record that continues to use storage until permanently removed. Users can restore a deleted memo or permanently delete its memo data and history from the management page.
         Resetting local data deletes active memos, revision history, and deletion records.
-        Disconnecting sync does not delete local memos, pending sync-change records, or encrypted data in Google Drive. A separate Delete Drive data action deletes that vault's sync key and encrypted snapshots without deleting local memos.
+        Disconnecting sync does not delete local memos, pending sync-change records, or encrypted data in Google Drive. A separate Delete Drive data action deletes that vault's sync key, encrypted snapshots, and current-vault recovery staging and quarantine copies without deleting local memos.
+        Disabling DVDPrime activity alerts stops scheduled checks and notifications and deletes the automatic-check diagnostic record, but it does not delete the latest sanitized counts or duplicate-suppression state. A new diagnostic record may be created if the user later opens the panel or checks manually. Reset local data also deletes this DVDPrime activity state and any temporary notification link.
         Removing the extension or deleting browser profile data may also delete locally stored data.
       </p>
 

@@ -104,19 +104,103 @@
         <li>Open a supported page, select a marker next to an author, and add a private note.</li>
       </ul>
 
+      <h2>Markers and Page Display</h2>
+      <p>
+        By default, filled dots mark saved memos and outline dots let you add a new memo. Enable <strong>Show saved memos only</strong> to hide empty dots without hiding saved memos. The <strong>Page Alert Badge</strong> can show memo and match counts in the bottom-right corner and can be turned off independently.
+      </p>
+
+      <h2>Custom Domains and Page Diagnosis</h2>
+      <p>
+        From the management page, you can add a custom domain, grant access only to that domain, save selected page text from the browser context menu, and optionally limit matching to a CSS selector. Click the Memolight toolbar icon on a page to diagnose access, enablement, selector matches, detected targets, and marker counts without including memo content or the full page URL in the report.
+      </p>
+      <p>
+        Source links saved with new memos remove common OAuth/OIDC callback credentials and state/error parameters, tracking values, and request signatures while preserving supported-site navigation codes and fragments required to reopen supported pages.
+      </p>
+
+      <h2>History, Backup, and Sync</h2>
+      <p>
+        Memolight keeps the latest 20 versions per memo for active and recoverably deleted records and lets you review or restore earlier versions. It does not silently prune history using a separate global total. Deleted memos remain recoverable until you permanently remove them. The management page can export a readable, unencrypted CSV or export and import a password-protected AES-GCM backup; backup changes and projected storage usage are shown before confirmation. Backup passwords accept a minimum of four characters, while eight or more characters is recommended.
+      </p>
+      <p>
+        Google Drive sync is separate and optional. Local data remains available when sync is disconnected or temporarily fails. Disconnecting does not delete local or remote data, while <strong>Delete Drive data</strong> removes the remote Memolight vault without deleting local memos.
+      </p>
+      <p>
+        If 1.4.4 confirms that the exact encrypted snapshot recorded for this installation is damaged, automatic sync pauses and the management page offers an explicit repair action. After confirmation, Memolight requires the account-verified sync key, creates and fully verifies a noncanonical staging copy, promotes it, and only then renames the damaged file as a retained vault-scoped quarantine copy instead of deleting it. Failures before promotion leave the damaged canonical file unchanged. If a result becomes ambiguous after a verified promotion, Memolight keeps the verified replacement, preserves the warning, and lets a later explicit repair safely reuse or adopt it. <strong>Delete Drive data</strong> also removes current-vault recovery staging and quarantine copies when the user explicitly deletes the vault.
+      </p>
+
+      <h2>Memo Limits and Live Management Updates</h2>
+      <p>
+        Editor saves that create a memo or change its body can contain up to 10,000 characters. Import, synchronization, sanitization, and history restoration preserve longer legacy data, and the editor can retain it unchanged instead of truncating it during upgrade.
+      </p>
+      <p>
+        An open management page refreshes when another tab changes local memo data. Memo-editor and custom-site memo drafts are preserved; entered backup/recovery passwords and a selected import file defer refresh until cleared. A stale editor save is rejected without overwriting or resurrecting the external version, and its draft remains available to copy. Repeated page observations persist a memo's last-seen time at most once every six hours; an observation-only update does not advance the sync mutation journal or schedule an extra sync mutation, although a later database snapshot can include that timestamp.
+      </p>
+
+      <h2>Private Memo UI in 1.4.4 and Later</h2>
+      <p>
+        Starting with 1.4.4, memo text, short labels, source context, history, and unsaved drafts are displayed in an isolated extension-origin UI instead of the website DOM. A site can still observe marker existence and color and, if the Page Alert Badge is enabled, its memo and match counts. It cannot read the private memo fields through ordinary page scripts.
+      </p>
+      <p>
+        The desktop memo window uses a fixed outer size and scrolls long content inside it. If the isolated frame cannot open, including in private/incognito extension contexts where 1.4.4 intentionally does not use the on-page private UI, Memolight fails closed: hover preview stays hidden and an explicit view, edit, or summary action opens the management page instead of placing private content into the website page. Versions earlier than 1.4.4 do not use this isolation boundary.
+      </p>
+
       <h2>Supported Sites</h2>
       <p>
         Memolight currently supports Reddit, X, Threads, Hacker News, Hatena Bookmark, Bluesky, Slickdeals, Mobile01, DVDPrime, MLBPARK, Bobaedream, and Inven.
         Support can vary when a site changes its layout or blocks extension access.
       </p>
 
+      <h2>DVDPrime Activity Alerts</h2>
+      <p>
+        In Memolight 1.4.x on Chrome, Edge, and Firefox, DVDPrime users can
+        optionally monitor comments, recommendations, and subscription posts
+        through the browser's existing signed-in session. Open the supported
+        sites section, expand DVDPrime, grant DVDPrime access, and enable
+        activity alerts. The available intervals are 5, 15, 30, and 60 minutes,
+        with 15 minutes as the default. Each activity type can be included or
+        excluded from notifications and the toolbar badge.
+      </p>
+      <p>
+        Chrome and Edge can delay extension alarms while the browser or device
+        is inactive. Memolight 1.4.3 restores a missing schedule and performs
+        one overdue check when the extension worker resumes, but it cannot wake
+        a fully closed browser or a sleeping device. The DVDPrime panel shows
+        the last automatic alarm and delayed-check recovery attempt for
+        troubleshooting.
+      </p>
+      <p>
+        Firefox may separately request optional data consent for DVDPrime
+        activity and Google Drive synchronization. Google Drive actions may
+        also request exact optional Google service access, plus the validated
+        localhost callback on Android; these sites are not required at
+        installation. Declining them leaves local memo and backup features
+        available. Firefox notifications have a
+        <strong>View</strong> action but no Chrome-style
+        <strong>View all activity</strong> button; open the full list from the
+        DVDPrime panel. DVDPrime activity alerts are unavailable in Safari.
+      </p>
+      <p>
+        Firefox upgrades from older Memolight versions may retain Google
+        service access that those versions required at installation. Version
+        1.4.4 checks this once and removes only orphaned exact Google API or
+        localhost grants. It preserves unrelated site access and stored data.
+        When both optional Google Drive data categories are granted, any
+        already-granted origins used by the current platform are kept; the
+        next explicit Drive action requests anything missing.
+      </p>
+
       <h2>Troubleshooting</h2>
       <ul>
-        <li>If markers do not appear, check that the extension is enabled in Safari settings.</li>
-        <li>If Safari asks for permission on a site, choose Allow for the sites where you want to use Memolight.</li>
+        <li>If markers do not appear, confirm that the extension is enabled and that Memolight has access to that site in the browser's extension settings.</li>
+        <li>If the browser asks for permission on a site, choose Allow only for the sites where you want to use Memolight.</li>
         <li>If a page was already open before enabling the extension, refresh the page.</li>
         <li>If a site layout has changed, send the site URL and a short description of the problem.</li>
         <li>If automatic or manual sync fails, local memos remain available. Check the Google authorization and network connection, then try Sync now again.</li>
+        <li>If the management page reports that this device's Drive snapshot is damaged, review the repair explanation and select Verify and repair only when you are ready to confirm a remote change. The action does not delete the damaged file; it keeps a quarantine copy after verifying the replacement.</li>
+        <li>If Firefox reports that Google Drive permission is missing, choose Connect, Reconnect, or Sync now and approve the optional Google service and data-consent request. Automatic sync does not open this prompt and remains paused after denial or revocation.</li>
+        <li>If DVDPrime reports that no login session is available, sign in to DVDPrime in the same browser profile, confirm DVDPrime access in Memolight, and use Check now.</li>
+        <li>If DVDPrime activity counts update but no system notification appears, confirm the browser's optional notification permission and the operating system's notification settings. The toolbar badge remains available as a fallback.</li>
+        <li>If Chrome alerts arrive only after the browser becomes active, confirm that at least one Chrome window remains running and review the last automatic alarm and recovery attempt in the DVDPrime panel. A fully closed browser or sleeping device cannot be woken by an extension alarm.</li>
       </ul>
 
       <h2>Contact</h2>
@@ -140,7 +224,7 @@
 
       <hr class="divider">
 
-      <p class="muted">Last updated: July 10, 2026</p>
+      <p class="muted">Last updated: July 26, 2026</p>
     </main>
   </body>
 </html>
