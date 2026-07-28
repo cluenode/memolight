@@ -127,6 +127,9 @@
       <p>
         If 1.4.4 confirms that the exact encrypted snapshot recorded for this installation is damaged, automatic sync pauses and the management page offers an explicit repair action. After confirmation, Memolight requires the account-verified sync key, creates and fully verifies a noncanonical staging copy, promotes it, and only then renames the damaged file as a retained vault-scoped quarantine copy instead of deleting it. Failures before promotion leave the damaged canonical file unchanged. If a result becomes ambiguous after a verified promotion, Memolight keeps the verified replacement, preserves the warning, and lets a later explicit repair safely reuse or adopt it. <strong>Delete Drive data</strong> also removes current-vault recovery staging and quarantine copies when the user explicitly deletes the vault.
       </p>
+      <p>
+        Starting in 1.4.5, remote deletion verifies the Drive listing after snapshots and recovery objects are removed and again after the key envelope is removed. If an object cannot be identified or Drive still lists an attempted file, Memolight reports failure and preserves local sync state for a safe retry instead of showing a false success.
+      </p>
 
       <h2>Memo Limits and Live Management Updates</h2>
       <p>
@@ -135,6 +138,9 @@
       <p>
         An open management page refreshes when another tab changes local memo data. Memo-editor and custom-site memo drafts are preserved; entered backup/recovery passwords and a selected import file defer refresh until cleared. A stale editor save is rejected without overwriting or resurrecting the external version, and its draft remains available to copy. Repeated page observations persist a memo's last-seen time at most once every six hours; an observation-only update does not advance the sync mutation journal or schedule an extra sync mutation, although a later database snapshot can include that timestamp.
       </p>
+      <p>
+        In 1.4.5 and later, an encrypted-backup confirmation is valid only for the exact local database used to calculate its preview. If another tab changes a memo, history, deletion record, or setting first, the preview is discarded and must be reviewed again.
+      </p>
 
       <h2>Private Memo UI in 1.4.4 and Later</h2>
       <p>
@@ -142,6 +148,9 @@
       </p>
       <p>
         The desktop memo window uses a fixed outer size and scrolls long content inside it. If the isolated frame cannot open, including in private/incognito extension contexts where 1.4.4 intentionally does not use the on-page private UI, Memolight fails closed: hover preview stays hidden and an explicit view, edit, or summary action opens the management page instead of placing private content into the website page. Versions earlier than 1.4.4 do not use this isolation boundary.
+      </p>
+      <p>
+        Version 1.4.5 also invalidates every temporary private-UI session for a tab when its top-level document begins reloading or navigating. This prevents an earlier document's token from surviving a page load even on browser versions that do not expose a document ID to extensions.
       </p>
 
       <h2>Supported Sites</h2>
@@ -161,12 +170,13 @@
         excluded from notifications and the toolbar badge.
       </p>
       <p>
-        Chrome and Edge can delay extension alarms while the browser or device
-        is inactive. Memolight 1.4.3 restores a missing schedule and performs
-        one overdue check when the extension worker resumes, but it cannot wake
-        a fully closed browser or a sleeping device. The DVDPrime panel shows
-        the last automatic alarm and delayed-check recovery attempt for
-        troubleshooting.
+        Chrome, Edge, and Firefox can delay extension alarms while the browser
+        or device is inactive. Chrome/Edge 1.4.3 and Firefox 1.4.6 restore a
+        missing schedule and perform one overdue check when the extension
+        background resumes, but they cannot wake a fully closed browser,
+        Firefox suspended by Android power management, or a sleeping device.
+        The DVDPrime panel shows the last automatic alarm and delayed-check
+        recovery attempt for troubleshooting.
       </p>
       <p>
         Firefox may separately request optional data consent for DVDPrime
@@ -201,6 +211,7 @@
         <li>If DVDPrime reports that no login session is available, sign in to DVDPrime in the same browser profile, confirm DVDPrime access in Memolight, and use Check now.</li>
         <li>If DVDPrime activity counts update but no system notification appears, confirm the browser's optional notification permission and the operating system's notification settings. The toolbar badge remains available as a fallback.</li>
         <li>If Chrome alerts arrive only after the browser becomes active, confirm that at least one Chrome window remains running and review the last automatic alarm and recovery attempt in the DVDPrime panel. A fully closed browser or sleeping device cannot be woken by an extension alarm.</li>
+        <li>If Firefox Android alerts arrive only after reopening Firefox, allow unrestricted battery use for Firefox if appropriate for your device and review the last alarm and recovery attempt in the DVDPrime panel. Android can still defer a sleeping Firefox process, so immediate screen-off delivery is not guaranteed.</li>
       </ul>
 
       <h2>Contact</h2>
@@ -224,7 +235,7 @@
 
       <hr class="divider">
 
-      <p class="muted">Last updated: July 26, 2026</p>
+      <p class="muted">Last updated: July 27, 2026</p>
     </main>
   </body>
 </html>
