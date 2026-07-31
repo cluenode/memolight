@@ -98,15 +98,25 @@
 
       <h2>Getting Started</h2>
       <ul>
-        <li>Install Memolight from the Chrome Web Store or Firefox Add-ons, or from the App Store or TestFlight when available.</li>
+        <li>Install Memolight from the <a href="https://chromewebstore.google.com/detail/memolight/hhlgpcajmljipbolonmliljpbhlifjcp">Chrome Web Store</a>, <a href="https://addons.mozilla.org/en-US/firefox/addon/memolight/">Firefox Add-ons</a>, or the <a href="https://apps.apple.com/app/memolight-for-safari/id6787877249">App Store</a>.</li>
         <li>Enable the Memolight extension in your browser settings.</li>
         <li>Allow site access for the supported sites where you want memo markers to appear.</li>
         <li>Open a supported page, select a marker next to an author, and add a private note.</li>
       </ul>
 
+      <h2>Browser Support</h2>
+      <ul>
+        <li>Chrome and Edge desktop are supported. Chrome Android does not support this WebExtension installation model and is not a supported target.</li>
+        <li>Firefox desktop is supported. Firefox Android is beta-supported; mobile page structure, login state, permission UI, and Android process limits can affect behavior.</li>
+        <li>Safari 16.4 or later is supported on macOS 11 or later and iOS/iPadOS 16.4 or later. DVDPrime activity alerts are intentionally unavailable in Safari.</li>
+      </ul>
+
       <h2>Markers and Page Display</h2>
       <p>
         By default, filled dots mark saved memos and outline dots let you add a new memo. Enable <strong>Show saved memos only</strong> to hide empty dots without hiding saved memos. The <strong>Page Alert Badge</strong> can show memo and match counts in the bottom-right corner and can be turned off independently.
+      </p>
+      <p>
+        On touch devices, a marker opens only after a deliberate single-finger tap. Dragging across a marker while scrolling, a marker touch sequence that becomes multi-touch, and a cancelled touch do not open the memo panel.
       </p>
 
       <h2>Custom Domains and Page Diagnosis</h2>
@@ -125,7 +135,16 @@
         Google Drive sync is separate and optional. Local data remains available when sync is disconnected or temporarily fails. Disconnecting does not delete local or remote data, while <strong>Delete Drive data</strong> removes the remote Memolight vault without deleting local memos.
       </p>
       <p>
+        <strong>Delete data on this device</strong> removes local memos, history, deletion records, settings, sync connection information, and related temporary operation records. It keeps browser-managed site permissions and remote Google Drive data. If local changes have not reached Drive, Memolight warns that deleting now would make those changes unrecoverable; sync or export an encrypted backup first.
+      </p>
+      <p>
+        Automatic synchronization is periodic, not real-time. Browsers and mobile operating systems can delay background alarms, network access, or extension execution. This is especially relevant to Firefox Android while the screen is off or the device is idle. Open Firefox and use <strong>Sync now</strong> when an immediate reconciliation is required.
+      </p>
+      <p>
         If 1.4.4 confirms that the exact encrypted snapshot recorded for this installation is damaged, automatic sync pauses and the management page offers an explicit repair action. After confirmation, Memolight requires the account-verified sync key, creates and fully verifies a noncanonical staging copy, promotes it, and only then renames the damaged file as a retained vault-scoped quarantine copy instead of deleting it. Failures before promotion leave the damaged canonical file unchanged. If a result becomes ambiguous after a verified promotion, Memolight keeps the verified replacement, preserves the warning, and lets a later explicit repair safely reuse or adopt it. <strong>Delete Drive data</strong> also removes current-vault recovery staging and quarantine copies when the user explicitly deletes the vault.
+      </p>
+      <p>
+        If 1.5 cannot safely identify a damaged snapshot as belonging to the current vault, automatic sync remains paused and the management page can offer a full Drive-vault rebuild. First export an encrypted backup in that same management session. If the local data has not changed, you can confirm the connected account and type <strong>REBUILD</strong> to replace only identified Memolight objects in Drive's hidden app-data space with a fully verified vault made from the current local memos. Other devices must reconnect afterward. If the browser is interrupted after the remote replacement, run the action again so Memolight can verify and adopt it. An incomplete replacement requires a separate <strong>RESTART</strong> confirmation before the remaining files from the previous and replacement vaults bound to the local recovery record are cleared. No developer server is used.
       </p>
       <p>
         Starting in 1.4.5, remote deletion verifies the Drive listing after snapshots and recovery objects are removed and again after the key envelope is removed. If an object cannot be identified or Drive still lists an attempted file, Memolight reports failure and preserves local sync state for a safe retry instead of showing a false success.
@@ -207,6 +226,7 @@
         <li>If a site layout has changed, send the site URL and a short description of the problem.</li>
         <li>If automatic or manual sync fails, local memos remain available. Check the Google authorization and network connection, then try Sync now again.</li>
         <li>If the management page reports that this device's Drive snapshot is damaged, review the repair explanation and select Verify and repair only when you are ready to confirm a remote change. The action does not delete the damaged file; it keeps a quarantine copy after verifying the replacement.</li>
+        <li>If the management page instead offers a full Drive-vault rebuild, first download and safely retain the encrypted backup it requires. Review the connected Google account and local memo count before entering REBUILD. Keep the page open while possible; if saving the new connection is interrupted, return to the same recovery action to adopt the verified replacement. Enter RESTART only when the separate prompt explains that the recorded previous and replacement vault remnants must be cleared.</li>
         <li>If Firefox reports that Google Drive permission is missing, choose Connect, Reconnect, or Sync now and approve the optional Google service and data-consent request. Automatic sync does not open this prompt and remains paused after denial or revocation.</li>
         <li>If DVDPrime reports that no login session is available, sign in to DVDPrime in the same browser profile, confirm DVDPrime access in Memolight, and use Check now.</li>
         <li>If DVDPrime activity counts update but no system notification appears, confirm the browser's optional notification permission and the operating system's notification settings. The toolbar badge remains available as a fallback.</li>
@@ -235,7 +255,7 @@
 
       <hr class="divider">
 
-      <p class="muted">Last updated: July 27, 2026</p>
+      <p class="muted">Last updated: July 31, 2026</p>
     </main>
   </body>
 </html>
